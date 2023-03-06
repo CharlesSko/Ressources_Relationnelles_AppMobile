@@ -35,7 +35,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text('Entrez votre pseudo'),
+                      Text('Pseudo'),
                       SizedBox(
                         height: 10.0,
                       ),
@@ -58,7 +58,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       SizedBox(
                         height: 20.0,
                       ),
-                      Text('Entrez votre mots de passe'),
+                      Text('Mots de passe'),
                       SizedBox(
                         height: 10.0,
                       ),
