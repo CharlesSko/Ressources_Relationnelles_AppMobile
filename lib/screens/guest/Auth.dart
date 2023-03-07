@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ressources_relationnel/screens/guest/Accueille.dart';
+import 'package:ressources_relationnel/screens/guest/Insc.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -15,6 +17,59 @@ class _AuthScreenState extends State<AuthScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFD8E5F9),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 5,
+          backgroundColor: Color(0xFFD8E5F9),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccueilleScreen()),
+                  );
+                },
+                child: Icon(
+                  Icons.apps,
+                  color: Colors.black,
+                  size: 40.0,
+                ),
+              ),
+
+              InkWell(
+                child: Ink.image(
+                  fit: BoxFit.cover, // Fixes border issues
+                  width: 75,
+                  height: 40,
+                  image: AssetImage(
+                    'images/logo.png',
+                  ),
+                ),
+              ),
+
+              // ignore: prefer_const_literals_to_create_immutables
+
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AuthScreen()),
+                  );
+                },
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 20,
+                  backgroundImage: NetworkImage(
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/280px-The_Blue_Marble_%28remastered%29.jpg',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         body: Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
@@ -86,6 +141,9 @@ class _AuthScreenState extends State<AuthScreen> {
                           padding: EdgeInsets.symmetric(
                             vertical: 15.0,
                           ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           backgroundColor: Color(0xFFA41C61),
                         ),
                         onPressed: () =>
@@ -94,7 +152,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           'Connexion',
                           style: TextStyle(
                             color: Color(0xFFD8E5F9),
-                            fontSize: 20.0,
+                            fontSize: 17.0,
                           ),
                         ),
                       ),
@@ -106,15 +164,23 @@ class _AuthScreenState extends State<AuthScreen> {
                           padding: EdgeInsets.symmetric(
                             vertical: 15.0,
                           ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                           backgroundColor: Color(0xFFA41C61),
                         ),
-                        onPressed: () =>
-                            print('send'), //Vérification UserName / Password
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InscScreen()),
+                          );
+                        },
                         child: Text(
                           'Inscription',
                           style: TextStyle(
                             color: Color(0xFFD8E5F9),
-                            fontSize: 20.0,
+                            fontSize: 17.0,
                           ),
                         ),
                       ),

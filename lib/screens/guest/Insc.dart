@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:ressources_relationnel/screens/guest/Accueille.dart';
+import 'package:ressources_relationnel/screens/guest/Auth.dart';
 
 class InscScreen extends StatefulWidget {
   const InscScreen({super.key});
@@ -28,6 +30,59 @@ class _InscScreenState extends State<InscScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFD8E5F9),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 5,
+          backgroundColor: Color(0xFFD8E5F9),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccueilleScreen()),
+                  );
+                },
+                child: Icon(
+                  Icons.apps,
+                  color: Colors.black,
+                  size: 40.0,
+                ),
+              ),
+
+              InkWell(
+                child: Ink.image(
+                  fit: BoxFit.cover, // Fixes border issues
+                  width: 75,
+                  height: 40,
+                  image: AssetImage(
+                    'images/logo.png',
+                  ),
+                ),
+              ),
+
+              // ignore: prefer_const_literals_to_create_immutables
+
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AuthScreen()),
+                  );
+                },
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 20,
+                  backgroundImage: NetworkImage(
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/280px-The_Blue_Marble_%28remastered%29.jpg',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         body: Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
@@ -55,7 +110,7 @@ class _InscScreenState extends State<InscScreen> {
                         backgroundColor: Colors.black,
                         radius: 100.0,
                         backgroundImage: NetworkImage(
-                          'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+                          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/280px-The_Blue_Marble_%28remastered%29.jpg',
                         ),
                       ),
                       SizedBox(
@@ -292,8 +347,13 @@ class _InscScreenState extends State<InscScreen> {
                           ),
                           backgroundColor: Color(0xFFA41C61),
                         ),
-                        onPressed: () =>
-                            print('send'), //Vérification UserName / Password
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthScreen()),
+                          );
+                        },
                         child: Text(
                           'Inscription',
                           style: TextStyle(
@@ -303,7 +363,7 @@ class _InscScreenState extends State<InscScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 15.0,
+                        height: 10.0,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -315,8 +375,13 @@ class _InscScreenState extends State<InscScreen> {
                           ),
                           backgroundColor: Color(0xFFA41C61),
                         ),
-                        onPressed: () =>
-                            print('send'), //Vérification UserName / Password
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthScreen()),
+                          );
+                        },
                         child: Text(
                           'Annuler',
                           style: TextStyle(

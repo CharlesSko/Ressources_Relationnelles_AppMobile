@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ressources_relationnel/screens/guest/Auth.dart';
-import 'package:ressources_relationnel/screens/guest/Insc.dart';
+import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 
 void main() => runApp(App());
 
@@ -10,11 +9,10 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     // ignore: prefer_const_constructors
     return MaterialApp(
       title: 'Ressource Relationelle',
-      home: const InscScreen(),
+      home: const AccueilleScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
