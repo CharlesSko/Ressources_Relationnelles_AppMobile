@@ -70,6 +70,210 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
             ],
           ),
         ),
+        body: Center(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.0,
+            ),
+            child: Column(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SizedBox(
+                        height: 75.0,
+                      ),
+                      Text(
+                        'Ressources Relationnelles',
+                        style: TextStyle(
+                          fontSize: 50.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      Text(
+                        'La plateforme qui met à votre disposition des outils numériques pour améliorer la qualité de vos liens sociaux et renforcer votre bien-être.',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.0,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          backgroundColor: Color(0xFFA41C61),
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Créez votre compte',
+                          style: TextStyle(
+                            color: Color(0xFFD8E5F9),
+                            fontSize: 17.0,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.0,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          backgroundColor: Color(0xFFA41C61),
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InscScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Connectez-vous',
+                          style: TextStyle(
+                            color: Color(0xFFD8E5F9),
+                            fontSize: 17.0,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down_outlined,
+                        color: Colors.black,
+                        size: 100.0,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Notre équipe',
+                        style: TextStyle(
+                          fontSize: 50.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Cyprien Crombez',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur back-end',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Maxence Vandekerckhove',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur front-end',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Charles Skorupka',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur mobile',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 100.0,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

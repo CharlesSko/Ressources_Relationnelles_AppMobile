@@ -86,7 +86,7 @@ class _InscScreenState extends State<InscScreen> {
         body: Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
-              horizontal: 20.0,
+              horizontal: 10.0,
             ),
             child: Column(
               children: [
