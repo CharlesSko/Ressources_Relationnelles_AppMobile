@@ -18,7 +18,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -120,7 +120,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -132,7 +132,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                         child: Text(
                           'Créez votre compte',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),
@@ -148,7 +148,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -160,7 +160,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                         child: Text(
                           'Connectez-vous',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),

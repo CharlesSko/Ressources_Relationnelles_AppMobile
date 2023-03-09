@@ -19,7 +19,7 @@ class _AuthScreenState extends State<AuthScreen> {
     bool _isObscure = true;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -116,7 +116,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -140,7 +140,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -155,7 +155,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -167,7 +167,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         child: Text(
                           'Connexion',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),
@@ -183,7 +183,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -195,7 +195,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         child: Text(
                           'Inscription',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),

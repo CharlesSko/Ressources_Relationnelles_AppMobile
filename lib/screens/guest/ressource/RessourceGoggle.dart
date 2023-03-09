@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ressources_relationnel/screens/Profil.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Insc.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
@@ -27,7 +28,7 @@ class _RessourceGoggleScreenState extends State<RessourceGoggleScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -74,8 +75,7 @@ class _RessourceGoggleScreenState extends State<RessourceGoggleScreen> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const RessourcesScreen()),
+                    MaterialPageRoute(builder: (context) => const AuthScreen()),
                   );
                 },
                 child: CircleAvatar(
@@ -107,7 +107,7 @@ class _RessourceGoggleScreenState extends State<RessourceGoggleScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const AuthScreen()),
+                              builder: (context) => const ProfilScreen()),
                         );
                       },
                       child: CircleAvatar(

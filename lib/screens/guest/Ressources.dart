@@ -18,7 +18,7 @@ class _RessourcesScreenState extends State<RessourcesScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -68,7 +68,7 @@ class _RessourcesScreenState extends State<RessourcesScreen> {
                     MaterialPageRoute(builder: (context) => const AuthScreen()),
                   );
                 },
-                child: CircleAvatar( 
+                child: CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 20,
                   backgroundImage: NetworkImage(

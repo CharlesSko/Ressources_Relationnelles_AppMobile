@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:ressources_relationnel/screens/Profil.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
@@ -25,12 +26,12 @@ class _InscScreenState extends State<InscScreen> {
       if (states.any(interactiveStates.contains)) {
         return Colors.black;
       }
-      return Color(0xFFA41C61);
+      return Color(0xFF355689);
     }
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -140,7 +141,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -163,7 +164,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -185,7 +186,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -207,7 +208,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "I am smart",
@@ -230,7 +231,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -252,7 +253,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -274,7 +275,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -296,7 +297,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -318,7 +319,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -340,7 +341,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -362,7 +363,7 @@ class _InscScreenState extends State<InscScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                       ),
@@ -398,19 +399,19 @@ class _InscScreenState extends State<InscScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const AuthScreen()),
+                                builder: (context) => const ProfilScreen()),
                           );
                         },
                         child: Text(
                           'Inscription',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),
@@ -426,7 +427,7 @@ class _InscScreenState extends State<InscScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -438,7 +439,7 @@ class _InscScreenState extends State<InscScreen> {
                         child: Text(
                           'Annuler',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),

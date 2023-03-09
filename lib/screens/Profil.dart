@@ -25,12 +25,12 @@ class _ProfilScreenState extends State<ProfilScreen> {
       if (states.any(interactiveStates.contains)) {
         return Colors.black;
       }
-      return Color(0xFFA41C61);
+      return Color(0xFF355689);
     }
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
@@ -150,7 +150,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "charlesskorupka@hotmail.fr",
@@ -173,7 +173,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "Skorupka",
@@ -196,7 +196,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "Charles",
@@ -219,7 +219,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "06 86 81 81 71",
@@ -242,7 +242,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "Saint amand les eaux",
@@ -265,7 +265,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "372 Rue de la croisette",
@@ -288,7 +288,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
+                                color: Color(0xFF355689),
                               ),
                             )),
                         initialValue: "59230",
@@ -304,7 +304,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          backgroundColor: Color(0xFFA41C61),
+                          backgroundColor: Color(0xFF355689),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -316,7 +316,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                         child: Text(
                           'Modifier',
                           style: TextStyle(
-                            color: Color(0xFFD8E5F9),
+                            color: Colors.white,
                             fontSize: 17.0,
                           ),
                         ),

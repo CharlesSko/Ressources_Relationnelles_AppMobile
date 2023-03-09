@@ -1,9 +1,58 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:ressources_relationnel/screens/guest/Auth.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
+import 'package:ressources_relationnel/screens/guest/Auth.dart';
+
+Future<List<Publiction>> fetchPhotos(http.Client client) async {
+  final response =
+      await client.get(Uri.parse('127.0.0.1:8000/api/publications'));
+
+  // Use the compute function to run parsePhotos in a separate isolate.
+  return compute(parsePhotos, response.body);
+}
+
+List<Publiction> parsePhotos(String responseBody) {
+  final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+
+  return parsed.map<Publiction>((json) => Publiction.fromJson(json)).toList();
+}
+
+class Publiction {
+  final int id;
+
+  const Publiction({
+    required this.id,
+  });
+
+  factory Publiction.fromJson(Map<String, dynamic> json) {
+    return Publiction(
+      id: json['id'] as int,
+    );
+  }
+}
+
+void main() => runApp(App());
+
+////////Exemple appel API
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
+    return MaterialApp(
+      title: 'Ressource Relationelle',
+      home: const TestScreen(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
 
 class TestScreen extends StatefulWidget {
   const TestScreen({super.key});
@@ -13,15 +62,29 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
+  bool cgcIsChecked = false; //checkbox validation CGC
   @override
   Widget build(BuildContext context) {
+    //Couleur Checkbox
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.black;
+      }
+      return Color(0xFFA41C61);
+    }
+
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFD8E5F9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 5,
-          backgroundColor: Color(0xFFD8E5F9),
+          backgroundColor: Color(0xFF355689),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -84,11 +147,12 @@ class _TestScreenState extends State<TestScreen> {
               horizontal: 10.0,
             ),
             child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  // ignore: prefer_const_literals_to_create_immutables
+                Text(
+                  'Inscription',
+                  style: TextStyle(
+                    fontSize: 50.0,
+                  ),
                 ),
               ],
             ),
@@ -97,61 +161,4 @@ class _TestScreenState extends State<TestScreen> {
       ),
     );
   }
-}
-
-class DemoIconToggleButton extends StatefulWidget {
-  const DemoIconToggleButton(
-      {required this.isEnabled, this.getDefaultStyle, super.key});
-
-  final bool isEnabled;
-  final ButtonStyle? Function(bool, ColorScheme)? getDefaultStyle;
-
-  @override
-  State<DemoIconToggleButton> createState() => _DemoIconToggleButtonState();
-}
-
-class _DemoIconToggleButtonState extends State<DemoIconToggleButton> {
-  bool selected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final ColorScheme colors = Theme.of(context).colorScheme;
-    final VoidCallback? onPressed = widget.isEnabled
-        ? () {
-            setState(() {
-              selected = !selected;
-            });
-          }
-        : null;
-    ButtonStyle? style;
-    if (widget.getDefaultStyle != null) {
-      style = widget.getDefaultStyle!(selected, colors);
-    }
-
-    return IconButton(
-      isSelected: selected,
-      icon: const Icon(Icons.settings_outlined),
-      selectedIcon: const Icon(Icons.settings),
-      onPressed: onPressed,
-      style: style,
-    );
-  }
-}
-
-ButtonStyle enabledFilledButtonStyle(bool selected, ColorScheme colors) {
-  return IconButton.styleFrom(
-    foregroundColor: selected ? colors.onPrimary : colors.primary,
-    backgroundColor: selected ? colors.primary : colors.surfaceVariant,
-    disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-    hoverColor: selected
-        ? colors.onPrimary.withOpacity(0.08)
-        : colors.primary.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-  );
 }
