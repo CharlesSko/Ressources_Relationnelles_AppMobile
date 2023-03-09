@@ -68,7 +68,7 @@ class _RessourcesScreenState extends State<RessourcesScreen> {
                     MaterialPageRoute(builder: (context) => const AuthScreen()),
                   );
                 },
-                child: CircleAvatar(
+                child: CircleAvatar( 
                   backgroundColor: Colors.white,
                   radius: 20,
                   backgroundImage: NetworkImage(

@@ -16,6 +16,15 @@ class RessourceGoggleScreen extends StatefulWidget {
 class _RessourceGoggleScreenState extends State<RessourceGoggleScreen> {
   @override
   Widget build(BuildContext context) {
+    int compteurLike = 0;
+    int compteurMessage = 0;
+
+    void incrementCounter() {
+      setState(() {
+        compteurLike = compteurLike + 1;
+      });
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFD8E5F9),
@@ -90,16 +99,92 @@ class _RessourceGoggleScreenState extends State<RessourceGoggleScreen> {
                 SizedBox(
                   height: 20.0,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AuthScreen()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 15,
+                        backgroundImage: NetworkImage(
+                          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/280px-The_Blue_Marble_%28remastered%29.jpg',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15.0,
+                    ),
+                    Text(
+                      'Crée le 09/03/23 par CharlesS',
+                      style: TextStyle(
+                        fontSize: 10.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Image.asset(
                   'images/Google.png',
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  children: [
+                    Flexible(
+                      flex: 1,
+                      child: IconButton(
+                        onPressed: incrementCounter,
+                        icon: const Icon(Icons.favorite_border_outlined),
+                      ),
+                    ),
+                    Text(
+                      '$compteurLike',
+                      style: TextStyle(
+                        fontSize: 10.0,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                    SizedBox(
+                      width: 50.0,
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: IconButton(
+                        icon: const Icon(Icons.messenger_outline),
+                        onPressed: () => print('Message'),
+                      ),
+                    ),
+                    Text(
+                      '1',
+                      style: TextStyle(
+                        fontSize: 10.0,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10.0,
                 ),
                 Text(
                   'Android 14, IA, Pixel Tablet... La conférence Google I/O 2023 se tiendra le 10 mai',
                   style: TextStyle(
-                    fontSize: 25.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
                 ),
                 SizedBox(
                   height: 10.0,

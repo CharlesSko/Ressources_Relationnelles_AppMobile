@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ressources_relationnel/screens/Profil.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Insc.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
@@ -15,6 +16,7 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
+    bool _isObscure = true;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFD8E5F9),
@@ -126,6 +128,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         height: 10.0,
                       ),
                       TextFormField(
+                        obscureText: _isObscure,
                         decoration: InputDecoration(
                             hintText: 'Ex : 1234',
                             border: OutlineInputBorder(
@@ -154,8 +157,13 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                           backgroundColor: Color(0xFFA41C61),
                         ),
-                        onPressed: () =>
-                            print('send'), //Vérification UserName / Password
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ProfilScreen()),
+                          );
+                        },
                         child: Text(
                           'Connexion',
                           style: TextStyle(

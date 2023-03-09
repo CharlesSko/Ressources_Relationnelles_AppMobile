@@ -4,14 +4,14 @@ import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
 
-class InscScreen extends StatefulWidget {
-  const InscScreen({super.key});
+class ProfilScreen extends StatefulWidget {
+  const ProfilScreen({super.key});
 
   @override
-  State<InscScreen> createState() => _InscScreenState();
+  State<ProfilScreen> createState() => _ProfilScreenState();
 }
 
-class _InscScreenState extends State<InscScreen> {
+class _ProfilScreenState extends State<ProfilScreen> {
   bool cgcIsChecked = false; //checkbox validation CGC
   @override
   Widget build(BuildContext context) {
@@ -99,16 +99,7 @@ class _InscScreenState extends State<InscScreen> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  'Inscription',
-                  style: TextStyle(
-                    fontSize: 50.0,
-                  ),
-                ),
-                SizedBox(
-                  height: 20.0,
+                  height: 40.0,
                 ),
                 Form(
                   child: Column(
@@ -122,55 +113,29 @@ class _InscScreenState extends State<InscScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 20.0,
                       ),
-                      Text('Adresse email'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: 'Ex : mail@gamail.com',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
-                              ),
-                            )),
+                      Text(
+                        'CharlesSKO',
+                        style: TextStyle(
+                          fontSize: 50.0,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                       SizedBox(
                         height: 20.0,
                       ),
-                      Text('Mots de passe'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: 'Ex : 1234',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
-                              ),
-                            )),
+                      Text(
+                        'Je suis un passionné d\'exploration de nouvelles cultures et j\'aime élargir mes horizons en voyageant. En dehors de cela, je suis un fervent amateur de musique et je passe souvent mon temps libre à jouer de la guitare et à composer de la musique. J\'adore également les sports et je m\'efforce de garder un mode de vie actif. En somme, je suis quelqu\'un qui cherche constamment de nouvelles expériences et qui apprécie tout ce que la vie a à offrir.',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.justify,
                       ),
                       SizedBox(
-                        height: 20.0,
+                        height: 30.0,
                       ),
-                      Text('Confimez mots de passe'),
+                      Text('Email'),
                       SizedBox(
                         height: 10.0,
                       ),
@@ -188,29 +153,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Text('Pseudo'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
-                              ),
-                            )),
-                        initialValue: "I am smart",
+                        initialValue: "charlesskorupka@hotmail.fr",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -233,6 +176,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "Skorupka",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -255,6 +199,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "Charles",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -277,6 +222,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "06 86 81 81 71",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -299,6 +245,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "Saint amand les eaux",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -321,6 +268,7 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "372 Rue de la croisette",
                       ),
                       SizedBox(
                         height: 20.0,
@@ -343,53 +291,11 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFFA41C61),
                               ),
                             )),
+                        initialValue: "59230",
                       ),
                       SizedBox(
                         height: 20.0,
                       ),
-                      Text('Date de naissance'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              borderSide: BorderSide(
-                                color: Color(0xFFA41C61),
-                              ),
-                            )),
-                      ),
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            fillColor:
-                                MaterialStateProperty.resolveWith(getColor),
-                            value: cgcIsChecked,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                cgcIsChecked = value!;
-                              });
-                            },
-                          ),
-                          Expanded(
-                            child: Text(
-                              'CGU : Conditions générales d\’utilisation',
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
@@ -408,35 +314,7 @@ class _InscScreenState extends State<InscScreen> {
                           );
                         },
                         child: Text(
-                          'Inscription',
-                          style: TextStyle(
-                            color: Color(0xFFD8E5F9),
-                            fontSize: 17.0,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 15.0,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          backgroundColor: Color(0xFFA41C61),
-                        ),
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AuthScreen()),
-                          );
-                        },
-                        child: Text(
-                          'Annuler',
+                          'Modifier',
                           style: TextStyle(
                             color: Color(0xFFD8E5F9),
                             fontSize: 17.0,

@@ -166,7 +166,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 150.0,
                       ),
                       Icon(
                         Icons.arrow_drop_down_outlined,
@@ -174,7 +174,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                         size: 100.0,
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 50.0,
                       ),
                       Text(
                         'Notre équipe',
