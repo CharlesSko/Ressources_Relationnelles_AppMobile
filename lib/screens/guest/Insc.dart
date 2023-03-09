@@ -211,7 +211,6 @@ class _InscScreenState extends State<InscScreen> {
                                 color: Color(0xFF355689),
                               ),
                             )),
-                        initialValue: "I am smart",
                       ),
                       SizedBox(
                         height: 20.0,
