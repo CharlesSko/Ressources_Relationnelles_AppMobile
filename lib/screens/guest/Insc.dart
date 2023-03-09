@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
+import 'package:ressources_relationnel/screens/guest/Ressources.dart';
 
 class InscScreen extends StatefulWidget {
   const InscScreen({super.key});
@@ -42,7 +43,7 @@ class _InscScreenState extends State<InscScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const AccueilleScreen()),
+                        builder: (context) => const RessourcesScreen()),
                   );
                 },
                 child: Icon(
@@ -53,6 +54,13 @@ class _InscScreenState extends State<InscScreen> {
               ),
 
               InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccueilleScreen()),
+                  );
+                },
                 child: Ink.image(
                   fit: BoxFit.cover, // Fixes border issues
                   width: 75,
@@ -116,13 +124,13 @@ class _InscScreenState extends State<InscScreen> {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text('Pseudo'),
+                      Text('Adresse email'),
                       SizedBox(
                         height: 10.0,
                       ),
                       TextFormField(
                         decoration: InputDecoration(
-                            hintText: 'Ex : Bob',
+                            hintText: 'Ex : mail@gamail.com',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5.0),
                               borderSide: BorderSide(
@@ -184,7 +192,51 @@ class _InscScreenState extends State<InscScreen> {
                       SizedBox(
                         height: 20.0,
                       ),
-                      Text('Adresse email'),
+                      Text('Pseudo'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              borderSide: BorderSide(
+                                color: Color(0xFFA41C61),
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text('Nom'),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              borderSide: BorderSide(
+                                color: Color(0xFFA41C61),
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text('Prénom'),
                       SizedBox(
                         height: 10.0,
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
+import 'package:ressources_relationnel/screens/guest/Contact.dart';
 
 void main() => runApp(App());
 
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
       title: 'Ressource Relationelle',
-      home: const AccueilleScreen(),
+      home: const ContactScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

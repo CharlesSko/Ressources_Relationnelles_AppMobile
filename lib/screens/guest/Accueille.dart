@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
+import 'package:ressources_relationnel/screens/guest/Contact.dart';
 import 'package:ressources_relationnel/screens/guest/Insc.dart';
+import 'package:ressources_relationnel/screens/guest/Ressources.dart';
 
 class AccueilleScreen extends StatefulWidget {
   const AccueilleScreen({super.key});
@@ -29,7 +31,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const AccueilleScreen()),
+                        builder: (context) => const RessourcesScreen()),
                   );
                 },
                 child: Icon(
@@ -40,6 +42,13 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
               ),
 
               InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccueilleScreen()),
+                  );
+                },
                 child: Ink.image(
                   fit: BoxFit.cover, // Fixes border issues
                   width: 75,
@@ -117,7 +126,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const AuthScreen()),
+                                builder: (context) => const InscScreen()),
                           );
                         },
                         child: Text(
@@ -145,7 +154,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const InscScreen()),
+                                builder: (context) => const AuthScreen()),
                           );
                         },
                         child: Text(
@@ -266,6 +275,95 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                       ),
                       SizedBox(
                         height: 100.0,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ContactScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Contact',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Notre site',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'Ressources_Relationnelles.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Sites du gouvernement',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'data.gouv.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'gouvernement.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'legifrance.gouv.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'service-public.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 50.0,
                       ),
                     ],
                   ),

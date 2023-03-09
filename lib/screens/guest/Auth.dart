@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/Insc.dart';
+import 'package:ressources_relationnel/screens/guest/Ressources.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -29,7 +30,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const AccueilleScreen()),
+                        builder: (context) => const RessourcesScreen()),
                   );
                 },
                 child: Icon(
@@ -40,6 +41,13 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
 
               InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AccueilleScreen()),
+                  );
+                },
                 child: Ink.image(
                   fit: BoxFit.cover, // Fixes border issues
                   width: 75,
