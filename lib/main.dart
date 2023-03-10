@@ -4,18 +4,18 @@ import 'package:http/http.dart' as http;
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
 import 'package:ressources_relationnel/screens/guest/ressource/Test.dart';
 
-Future<List<dynamic>> fetchData() async {
+/*Future<List<dynamic>> fetchData() async {
   final response = await http.get(Uri.parse('http://127.0.0.1:8000/api/publications'));
 
   // Affiche la réponse de l'API dans la console
-  print('Réponse de l\'API : ${response.body}');
+  print('Réponse de l\'API : ${response.}');
 
   if (response.statusCode == 200) {
     return json.decode(response.body);
   } else {
     throw Exception('Failed to load data');
   }
-} 
+} */
 
 void main() => runApp(App());
 

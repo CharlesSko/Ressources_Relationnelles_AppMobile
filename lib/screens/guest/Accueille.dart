@@ -5,6 +5,10 @@ import 'package:ressources_relationnel/screens/guest/Auth.dart';
 import 'package:ressources_relationnel/screens/guest/Contact.dart';
 import 'package:ressources_relationnel/screens/guest/Insc.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+
 
 class AccueilleScreen extends StatefulWidget {
   const AccueilleScreen({super.key});
@@ -168,14 +172,6 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                       SizedBox(
                         height: 150.0,
                       ),
-                      Icon(
-                        Icons.arrow_drop_down_outlined,
-                        color: Colors.black,
-                        size: 100.0,
-                      ),
-                      SizedBox(
-                        height: 50.0,
-                      ),
                       Text(
                         'Notre équipe',
                         style: TextStyle(
@@ -306,7 +302,7 @@ class _AccueilleScreenState extends State<AccueilleScreen> {
                         height: 10.0,
                       ),
                       Text(
-                        'Ressources_Relationnelles.fr',
+                        'ressources.relationnelles.gouv.fr',
                         style: TextStyle(
                           fontSize: 15.0,
                         ),

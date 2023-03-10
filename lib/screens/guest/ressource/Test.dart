@@ -1,39 +1,9 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:ressources_relationnel/screens/guest/Accueille.dart';
-import 'dart:async';
-import 'package:flutter/foundation.dart';
+import 'package:ressources_relationnel/screens/guest/Insc.dart';
 import 'package:ressources_relationnel/screens/guest/Ressources.dart';
 import 'package:ressources_relationnel/screens/guest/Auth.dart';
-
-Future<List<Publiction>> fetchPhotos(http.Client client) async {
-  final response =
-      await client.get(Uri.parse('127.0.0.1:8000/api/publications'));
-
-  // Use the compute function to run parsePhotos in a separate isolate.
-  return compute(parsePhotos, response.body);
-}
-
-List<Publiction> parsePhotos(String responseBody) {
-  final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
-
-  return parsed.map<Publiction>((json) => Publiction.fromJson(json)).toList();
-}
-
-class Publiction {
-  final int id;
-
-  const Publiction({
-    required this.id,
-  });
-
-  factory Publiction.fromJson(Map<String, dynamic> json) {
-    return Publiction(
-      id: json['id'] as int,
-    );
-  }
-}
+import 'package:dio/dio.dart';
 
 void main() => runApp(App());
 
@@ -62,10 +32,33 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-  bool cgcIsChecked = false; //checkbox validation CGC
+  final dio = Dio();
+
+  var reponse = 0;
+
+  void getHttp(String id) async {
+    try {
+      var response =
+          await dio.get('http://127.0.0.1:8000/api/publications/{' + id + '}');
+      //await dio.get('http://127.0.0.1:8000/api/publications');
+      print(response);
+      this.reponse = response.data;
+      setState(() {});
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  /*
+  void gettHttp(String id) async{
+    try {
+      var reponse = await Dio().get('127.0.0.1:8000/api/publications/{'+id+'}'); 
+    };
+  }
+  */
+
   @override
   Widget build(BuildContext context) {
-    //Couleur Checkbox
     Color getColor(Set<MaterialState> states) {
       const Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
@@ -75,7 +68,7 @@ class _TestScreenState extends State<TestScreen> {
       if (states.any(interactiveStates.contains)) {
         return Colors.black;
       }
-      return Color(0xFFA41C61);
+      return Color(0xFF355689);
     }
 
     return SafeArea(
@@ -103,24 +96,6 @@ class _TestScreenState extends State<TestScreen> {
                 ),
               ),
 
-              InkWell(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AccueilleScreen()),
-                  );
-                },
-                child: Ink.image(
-                  fit: BoxFit.cover, // Fixes border issues
-                  width: 75,
-                  height: 40,
-                  image: AssetImage(
-                    'images/logo.png',
-                  ),
-                ),
-              ),
-
               // ignore: prefer_const_literals_to_create_immutables
 
               InkWell(
@@ -141,17 +116,284 @@ class _TestScreenState extends State<TestScreen> {
             ],
           ),
         ),
+        // ignore: prefer_const_constructors
         body: Center(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
               horizontal: 10.0,
             ),
             child: Column(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text(
-                  'Inscription',
-                  style: TextStyle(
-                    fontSize: 50.0,
+                Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SizedBox(
+                        height: 75.0,
+                      ),
+                      Text(
+                        'Ressources Relationnelles',
+                        style: TextStyle(
+                          fontSize: 50.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      Text(
+                        'La plateforme qui met à votre disposition des outils numériques pour améliorer la qualité de vos liens sociaux et renforcer votre bien-être.',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.0,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          backgroundColor: Color(0xFF355689),
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InscScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Créez votre compte',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17.0,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12.0,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          backgroundColor: Color(0xFF355689),
+                        ),
+                        ////////////////////////////////////////////////////Appel API
+                        onPressed: () {
+                          getHttp('1');
+                        },
+                        /////////////////////////////////////////////////////////////////
+                        child: Text(
+                          'Connectez-vous',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17.0,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 150.0,
+                      ),
+                      Text(
+                        'Notre équipe',
+                        style: TextStyle(
+                          fontSize: 50.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Cyprien Crombez',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur back-end',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Maxence Vandekerckhove',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur front-end',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 140.0,
+                        backgroundImage: AssetImage(
+                          'images/Contacts_icon.png',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Charles Skorupka',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Développeur mobile',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 100.0,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AuthScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Contact',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Notre site',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'ressources.relationnelles.gouv.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        'Sites du gouvernement',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'data.gouv.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'gouvernement.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'legifrance.gouv.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        'service-public.fr',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 50.0,
+                      ),
+                    ],
                   ),
                 ),
               ],
